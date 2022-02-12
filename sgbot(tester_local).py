@@ -15,7 +15,11 @@ btnDon = KeyboardButton('Donate')
 
 help_kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False).row(btnHlp, btnDon)
 
-bot = Bot(token='1097747087:AAG_GpsWo1Loj_0dfeF0EStQUEYwGH4xjI0')
+with open('token.txt') as tok:
+    t_token = tok.read().strip()
+
+bot = Bot(token=t_token)  # Токен тестового бота testingspamobot
+
 dp: Dispatcher = Dispatcher(bot, storage=MemoryStorage())
 
 logging.basicConfig(level=logging.INFO)
